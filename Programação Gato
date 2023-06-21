@@ -1,0 +1,73 @@
+programa
+
+{
+	
+	funcao inicio()
+	{
+		
+		cadeia Gato = "^0.0^"
+		inteiro Local
+		VidaGato()
+		escreva("\n	",Gato,"\nEscolha um local para ir:\n")
+		escreva("\n1:Casa\n2:Praça\n3:Mercado\n")
+		leia(Local)
+		escolha(Local){
+			caso 1:
+			escreva("\n\nVocê entrou na casa")
+			escreva("\n/ \\ \n| |", Gato)
+			escreva("\n Escolha algo para fazer\n")
+			escreva("1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\n")
+			inteiro FazCasa
+			leia(FazCasa)
+			escolha(FazCasa){
+				caso 1:
+				escreva("Você foi atacado por um cachorro.")
+				caso 2:
+				escreva("A casa esta vazia e você foi embora")
+				caso 3:
+				escreva("Você bebeu um pouco de água e saiu")
+				pare
+				
+			pare
+			caso 2:
+			escreva("\n\nVocê foi para a praça")
+				pare
+			caso 3:
+			escreva("\n\nVocê entrou no mercado")
+				pare
+			}
+				
+		}
+			
+		}
+			funcao VidaGato()
+		{
+		inteiro Vida = 7
+		
+		se(Vida == 7){
+			escreva("		Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
+		}
+		se(Vida == 6){
+			escreva("		Vida: 		♡ ♡ ♡ ♡ ♡ ♡")
+		}
+		se(Vida == 5){
+			escreva("		Vida:		♡ ♡ ♡ ♡ ♡")
+		}
+		se(Vida == 4){
+			escreva("		Vida:		♡ ♡ ♡ ♡")
+		}
+		se(Vida == 3){
+			escreva("		Vida:		♡ ♡ ♡")
+		}
+		se(Vida == 2){
+			escreva("		Vida:		♡ ♡")
+		}
+		se(Vida ==1){
+			escreva("		Vida:		♡")
+		}
+		se(Vida <= 0){
+			escreva("			Suas vidas acabaram")
+		}
+		}
+	
+}
