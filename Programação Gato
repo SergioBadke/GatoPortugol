@@ -1,48 +1,53 @@
 programa
-
 {
 	
 	funcao inicio()
 	{
 		
-		cadeia Gato = "^0.0^"
+		cadeia Gato = "      ▄▀▄     ▄▀▄\n     ▄█  ▀▀▀▀▀  █▄\n ▄▄  █           █  ▄▄\n█▄▄█ █  ▀  ┬  ▀  █ █▄▄█"
+		cadeia CmdFail = "Comando citado não existe, tente novamente"
 		inteiro Local
 		VidaGato()
-		escreva("\n	",Gato,"\nEscolha um local para ir:\n")
-		escreva("\n1:Casa\n2:Praça\n3:Mercado\n")
+		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
+		escreva("\n1:Casa\n2:Praça\n3:Mercado\n\nEscolha: ")
 		leia(Local)
 		escolha(Local){
 			caso 1:
-			escreva("\n\nVocê entrou na casa")
+			escreva("\n\nVocê entrou na casa\n")
 			escreva("\n/ \\ \n| |", Gato)
 			escreva("\n Escolha algo para fazer\n")
-			escreva("1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\n")
+			escreva("1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\nEscolha: ")
 			inteiro FazCasa
 			leia(FazCasa)
-			escolha(FazCasa){
-				caso 1:
-				escreva("Você foi atacado por um cachorro.")
+				se(FazCasa == 1){
+					escreva("Você foi atacado por um cachorro.\n\n")
+					VidaGato()
+				}se(FazCasa == 2){
+				escreva("A casa esta vazia e você foi embora\n\n")
+				}se(FazCasa == 3){
+				escreva("Você bebeu um pouco de água e saiu\n\n")
+					VidaGato()
+				}se(FazCasa != 1 ou FazCasa != 2 ou FazCasa != 3){
+					escreva(CmdFail)
+				}
+					pare
 				caso 2:
-				escreva("A casa esta vazia e você foi embora")
+				escreva("\n\nVocê foi para a praça")
+				pare
 				caso 3:
-				escreva("Você bebeu um pouco de água e saiu")
-				pare
-				
-			pare
-			caso 2:
-			escreva("\n\nVocê foi para a praça")
-				pare
-			caso 3:
-			escreva("\n\nVocê entrou no mercado")
-				pare
-			}
+				escreva("\n\nVocê entrou no mercado")
+					pare
+			}se(Local != 1 e Local != 2 e Local != 3){
+					escreva(CmdFail)
+				}
 				
 		}
 			
-		}
+		
 			funcao VidaGato()
 		{
 		inteiro Vida = 7
+		inteiro Danos
 		
 		se(Vida == 7){
 			escreva("		Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
