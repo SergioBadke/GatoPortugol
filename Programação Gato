@@ -1,17 +1,20 @@
 programa
 {
+	inclua biblioteca Util --> u
 	
 	funcao inicio()
 	{
-		
+		//Frases e Variaveis
 		cadeia Gato = "      ▄▀▄     ▄▀▄\n     ▄█  ▀▀▀▀▀  █▄\n ▄▄  █           █  ▄▄\n█▄▄█ █  ▀  ┬  ▀  █ █▄▄█"
 		cadeia CmdFail = "Comando citado não existe, tente novamente\n"
-		cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Dano = "Você sofreu um dano."
-		inteiro Local
-		
+		cadeia Entrada = "Você entrou n", Foi = "Você foi para "
+		cadeia Dano = "Você sofreu um dano.", Conheceu = "Você conheceu "
+		inteiro Personagens = 0
+		inteiro Sorteia
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
 		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n\nEscolha: "
 		escreva(LocaisCidade)
+		inteiro Local
 		leia(Local)
 		enquanto(Local != 1 e Local != 2 e Local !=3){
 				escreva(CmdFail)
@@ -33,12 +36,30 @@ programa
 					escreva(OqFazCasa)
 					leia(FazCasa)}
 				se(FazCasa == 1){
-					escreva("Você foi atacado por um cachorro.\n",Dano,"\n")
+				Sorteia = u.sorteia(1, 2)
+				 se(Sorteia == 1){
+				 	escreva("Você foi atacado pelo cachorro.\n",Dano,"\n")
+				 }se(Sorteia == 2){
+				 	escreva(Conheceu, "Rufus, o cachorro")
+				 	Personagens++
+				 }
 					
 				}se(FazCasa == 2){
-				escreva("A casa esta vazia e você foi embora\n\n")
+					Sorteia = u.sorteia(1, 2)
+					se(Sorteia == 1){
+						escreva("A casa esta vazia e você foi embora\n\n")
+					}se(Sorteia == 2){
+						escreva(Conheceu, "Jefferson, um humano")
+						Personagens++
+					}
 				}se(FazCasa == 3){
-				escreva("Você bebeu um pouco de água e saiu\n\n")
+					Sorteia = u.sorteia(1, 2)
+					se(Sorteia == 1){
+						escreva("Você bebeu um pouco de água e saiu\n\n")
+					}se(Sorteia == 2){
+						escreva(Conheceu, "Luciano, un humanito.")
+						Personagens++
+					}
 				}
 					pare
 				caso 2:
@@ -49,11 +70,7 @@ programa
 					pare
 			}
 				}
-				
-		
-			
-		
-			funcao VidaGato()
+	funcao VidaGato()
 		{
 		inteiro Vida = 7
 		
@@ -79,8 +96,9 @@ programa
 			escreva("	Vida:		♡")
 		}
 		se(Vida <= 0){
+			limpa()
 			escreva(" Suas vidas acabaram")
+			escreva("Você conheceu ", " personagens")
 		}
 		}
-	
 }
