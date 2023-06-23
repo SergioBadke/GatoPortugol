@@ -7,12 +7,12 @@ programa
 		//Frases e Variaveis
 		cadeia Gato = "      ▄▀▄     ▄▀▄\n     ▄█  ▀▀▀▀▀  █▄\n ▄▄  █           █  ▄▄\n█▄▄█ █  ▀  ┬  ▀  █ █▄▄█"
 		cadeia CmdFail = "Comando citado não existe, tente novamente\n"
-		cadeia Entrada = "Você entrou n", Foi = "Você foi para "
-		cadeia Dano = "Você sofreu um dano.", Conheceu = "Você conheceu "
+		cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Faz = "\n\n\n Escolha algo para fazer\n"
+		cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
 		inteiro Personagens = 0
 		inteiro Sorteia
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
-		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\n\nEscolha: "
+		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
 		escreva(LocaisCidade)
 		inteiro Local
 		leia(Local)
@@ -28,7 +28,7 @@ programa
 			caso 1:
 			escreva("\n\n", Entrada, "a casa\n")
 			escreva(Gato)
-			escreva("\n\n\n Escolha algo para fazer\n")
+			escreva(Faz)
 			cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n0:Sair\n\nEscolha: "
 			escreva(OqFazCasa)
 			inteiro FazCasa
@@ -67,9 +67,34 @@ programa
 				}
 			}
 			
+			
 					pare
 				caso 2:
 				escreva("\n\n", Foi, "a praça")
+				escreva(Gato)
+				escreva(Faz)
+				cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:  \n0:Sair"
+				escreva(OqFazPraca)
+				inteiro FazPraca
+				leia(FazPraca)
+				limpa()
+				enquanto(FazPraca != 0){
+					enquanto(FazPraca != 1 e FazPraca != 2 e FazPraca != 3){
+						escreva(CmdFail)
+						leia(FazPraca)
+					}
+					se(FazPraca == 1){
+						Sorteia = u.sorteia(1, 2)
+						se(Sorteia == 1){
+							escreva("Tinha vidro na areia. ",Dano)
+						}
+						se(Sorteia == 2){
+							escreva(Conheceu, "Luca, a criança")
+						}
+					}se(FazPraca == 2){
+						
+					}
+				}
 				pare
 				caso 3:
 				escreva("\n\n", Entrada, "o mercado")
