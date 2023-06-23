@@ -12,10 +12,12 @@ programa
 		inteiro Personagens = 0
 		inteiro Sorteia
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
-		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n\nEscolha: "
+		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\n\nEscolha: "
 		escreva(LocaisCidade)
 		inteiro Local
 		leia(Local)
+		limpa()
+		enquanto(Local != 0){
 		enquanto(Local != 1 e Local != 2 e Local !=3){
 				escreva(CmdFail)
 				escreva(LocaisCidade)
@@ -27,11 +29,13 @@ programa
 			escreva("\n\n", Entrada, "a casa\n")
 			escreva(Gato)
 			escreva("\n\n\n Escolha algo para fazer\n")
-			cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\nEscolha: "
+			cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n0:Sair\n\nEscolha: "
 			escreva(OqFazCasa)
 			inteiro FazCasa
 			leia(FazCasa)
-			enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
+			limpa()
+			enquanto(FazCasa != 0){
+				enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
 					escreva(CmdFail)
 					escreva(OqFazCasa)
 					leia(FazCasa)}
@@ -61,6 +65,8 @@ programa
 						Personagens++
 					}
 				}
+			}
+			
 					pare
 				caso 2:
 				escreva("\n\n", Foi, "a praça")
@@ -68,6 +74,7 @@ programa
 				caso 3:
 				escreva("\n\n", Entrada, "o mercado")
 					pare
+		}
 			}
 				}
 	funcao VidaGato()
