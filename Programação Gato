@@ -5,73 +5,79 @@ programa
 	{
 		
 		cadeia Gato = "      ▄▀▄     ▄▀▄\n     ▄█  ▀▀▀▀▀  █▄\n ▄▄  █           █  ▄▄\n█▄▄█ █  ▀  ┬  ▀  █ █▄▄█"
-		cadeia CmdFail = "Comando citado não existe, tente novamente"
+		cadeia CmdFail = "Comando citado não existe, tente novamente\n"
+		cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Dano = "Você sofreu um dano."
 		inteiro Local
-		VidaGato()
+		
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
 		escreva("\n1:Casa\n2:Praça\n3:Mercado\n\nEscolha: ")
 		leia(Local)
+		enquanto(Local != 1 e Local != 2 e Local !=3){
+				escreva(CmdFail)
+				escreva("\n1:Casa\n2:Praça\n3:Mercado\n\nEscolha: ")
+				leia(Local)
+			}
 		escolha(Local){
+			
 			caso 1:
-			escreva("\n\nVocê entrou na casa\n")
-			escreva("\n/ \\ \n| |", Gato)
-			escreva("\n Escolha algo para fazer\n")
+			escreva("\n\n", Entrada, "a casa\n")
+			escreva(Gato)
+			escreva("\n\n\n Escolha algo para fazer\n")
 			escreva("1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\nEscolha: ")
 			inteiro FazCasa
 			leia(FazCasa)
+			enquanto(Local != 1 e Local != 2 e Local != 3){
+					escreva(CmdFail)
+					escreva("1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n\nEscolha: ")
+					leia(FazCasa)}
 				se(FazCasa == 1){
-					escreva("Você foi atacado por um cachorro.\n\n")
-					VidaGato()
+					escreva("Você foi atacado por um cachorro.\n",Dano,"\n")
+					
 				}se(FazCasa == 2){
 				escreva("A casa esta vazia e você foi embora\n\n")
 				}se(FazCasa == 3){
 				escreva("Você bebeu um pouco de água e saiu\n\n")
-					VidaGato()
-				}se(FazCasa != 1 ou FazCasa != 2 ou FazCasa != 3){
-					escreva(CmdFail)
 				}
 					pare
 				caso 2:
-				escreva("\n\nVocê foi para a praça")
+				escreva("\n\n", Foi, "a praça")
 				pare
 				caso 3:
-				escreva("\n\nVocê entrou no mercado")
+				escreva("\n\n", Entrada, "o mercado")
 					pare
-			}se(Local != 1 e Local != 2 e Local != 3){
-					escreva(CmdFail)
+			}
 				}
 				
-		}
+		
 			
 		
 			funcao VidaGato()
 		{
 		inteiro Vida = 7
-		inteiro Danos
 		
 		se(Vida == 7){
-			escreva("		Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
+			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
 		}
 		se(Vida == 6){
-			escreva("		Vida: 		♡ ♡ ♡ ♡ ♡ ♡")
+			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡")
 		}
 		se(Vida == 5){
-			escreva("		Vida:		♡ ♡ ♡ ♡ ♡")
+			escreva("	Vida:		♡ ♡ ♡ ♡ ♡")
 		}
 		se(Vida == 4){
-			escreva("		Vida:		♡ ♡ ♡ ♡")
+			escreva("	Vida:		♡ ♡ ♡ ♡")
 		}
 		se(Vida == 3){
-			escreva("		Vida:		♡ ♡ ♡")
+			escreva("	Vida:		♡ ♡ ♡")
 		}
 		se(Vida == 2){
-			escreva("		Vida:		♡ ♡")
+			escreva("	Vida:		♡ ♡")
 		}
 		se(Vida ==1){
-			escreva("		Vida:		♡")
+			escreva("	Vida:		♡")
 		}
 		se(Vida <= 0){
-			escreva("			Suas vidas acabaram")
+			escreva(" Suas vidas acabaram")
 		}
 		}
 	
