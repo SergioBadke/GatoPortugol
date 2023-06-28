@@ -98,7 +98,7 @@ programa
 							escreva("Você estava brincando quando caiu do escorregador. ")
 							escreva(Dano)
 						}se(Sorteia == 2){
-							escreva("Você estava brincando quando você avista alguem.", Conheceu, "Feurico, o gato.")
+							escreva("Você estava brincando quando você avista alguem.", Conheceu, "Furico, o gato.")
 							Personagens++
 						}
 					}
