@@ -17,7 +17,7 @@ programa
 		inteiro Local
 		leia(Local)
 		limpa()
-		enquanto(Local != 0){
+		se(Local != 0){
 		enquanto(Local != 1 e Local != 2 e Local !=3){
 				escreva(CmdFail)
 				escreva(LocaisCidade)
@@ -34,7 +34,7 @@ programa
 			inteiro FazCasa
 			leia(FazCasa)
 			limpa()
-			enquanto(FazCasa != 0){
+			se(FazCasa != 0){
 				enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
 					escreva(CmdFail)
 					escreva(OqFazCasa)
@@ -70,15 +70,15 @@ programa
 			
 					pare
 				caso 2:
-				escreva("\n\n", Foi, "a praça")
+				escreva("\n\n", Foi, "a praça\n")
 				escreva(Gato)
 				escreva(Faz)
-				cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:  \n0:Sair"
+				cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta  \n0:Sair\n\nEscolha"
 				escreva(OqFazPraca)
 				inteiro FazPraca
 				leia(FazPraca)
 				limpa()
-				enquanto(FazPraca != 0){
+				se(FazPraca != 0){
 					enquanto(FazPraca != 1 e FazPraca != 2 e FazPraca != 3){
 						escreva(CmdFail)
 						leia(FazPraca)
@@ -87,17 +87,31 @@ programa
 						Sorteia = u.sorteia(1, 2)
 						se(Sorteia == 1){
 							escreva("Tinha vidro na areia. ",Dano)
-						}
-						se(Sorteia == 2){
+						}se(Sorteia == 2){	
 							escreva(Conheceu, "Luca, a criança")
 						}
-					}se(FazPraca == 2){
+						}
+					se(FazPraca == 2){
+						Sorteia = u.sorteia(1, 2)
 						
+						se(Sorteia == 1){
+							escreva("Você estava brincando quando caiu do escorregador. ")
+							escreva(Dano)
+						}se(Sorteia == 2){
+							escreva("Você estava brincando quando você avista alguem.", Conheceu, "Feurico, o gato.")
+							Personagens++
+						}
+					}
+					se(FazPraca == 3){
+						//Parte da "batalha épica"//
 					}
 				}
 				pare
 				caso 3:
-				escreva("\n\n", Entrada, "o mercado")
+				escreva("\n\n", Entrada, "o mercado\n")
+				escreva(Gato)
+				escreva(Faz)
+				cadeia FazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes
 					pare
 		}
 			}
@@ -105,6 +119,10 @@ programa
 	funcao VidaGato()
 		{
 		inteiro Vida = 7
+		const inteiro VidaMax = 7
+		se(Vida > VidaMax){
+			Vida = 7
+		}
 		
 		se(Vida == 7){
 			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
@@ -130,7 +148,6 @@ programa
 		se(Vida <= 0){
 			limpa()
 			escreva(" Suas vidas acabaram")
-			escreva("Você conheceu ", " personagens")
 		}
 		}
 }
