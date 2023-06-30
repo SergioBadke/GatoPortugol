@@ -1,37 +1,103 @@
 programa
 {
 	inclua biblioteca Util --> u
+//Frases e Variaveis
+
+	const inteiro VidaMax = 7
+	const cadeia Gato = "	      ▄▀▄     ▄▀▄\n	     ▄█  ▀▀▀▀▀  █▄\n	 ▄▄  █           █  ▄▄\n	█▄▄█ █  ▀  ┬  ▀  █ █▄▄█\n\n"
+	const cadeia CmdFail = "Comando citado não existe, tente novamente\n"
+	const cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Faz = "\n\n\n Escolha algo para fazer\n"
+	const cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
+	const cadeia FazMais = "Voce quer fazer mais alguma coisa?\n\n"
+	const cadeia Historia = "Cerveja, um gato perdido em uma cidade desconhecida, enfrenta solidão e perigos nas ruas.\nEle percorre ruas movimentadas, becos sombrios e terrenos acidentados, lutando contra a fome e a sede.\nSeu pelo está emaranhado e suas patas machucadas, mas ele persiste em sua busca por um lar.\nCerveja cruza com pessoas indiferentes que o ignoram, aumentando sua sensação de desamparo.\nNo entanto, em meio a sua angústia, Cerveja mantém a esperança\nde reencontrar sua família e sentir novamente o aconchego do lar.\n\n"
+		
+	inteiro Vida = 7
+	inteiro Personagens = 0
+	inteiro Sorteia
 	
 	funcao inicio()
 	{
-		//Frases e Variaveis
-		cadeia Gato = "      ▄▀▄     ▄▀▄\n     ▄█  ▀▀▀▀▀  █▄\n ▄▄  █           █  ▄▄\n█▄▄█ █  ▀  ┬  ▀  █ █▄▄█"
-		cadeia CmdFail = "Comando citado não existe, tente novamente\n"
-		cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Faz = "\n\n\n Escolha algo para fazer\n"
-		cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
-		cadeia FazMais = "Voce quer fazer mais alguma coisa?"
-		inteiro Personagens = 0
-		inteiro Sorteia
+		
+		
+		
+		
 		//Inicio do codigo//
+		escreva(Gato, Historia)
+		u.aguarde(1)
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
-		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
+		const cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
 		escreva(LocaisCidade)
 		inteiro Local
 		leia(Local)
 		limpa()
 		se(Local != 0){
 		enquanto(Local != 1 e Local != 2 e Local !=3){
+
+			
 				escreva(CmdFail)
 				escreva(LocaisCidade)
 				leia(Local)
+				limpa()
 			}
 		escolha(Local){
 			
 			caso 1:
+			Casa()
+					pare
+				caso 2:
+				Praca()
+				pare
+				caso 3:
+				escreva("\n\n", Entrada, "o mercado\n")
+				escreva(Gato)
+				escreva(Faz)
+				const cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes\n\nEscolha:"
+				escreva(OqFazMercado)
+				inteiro FazMercado
+				leia(FazMercado)
+				limpa()
+					pare
+		}
+			}
+			escreva(LocaisCidade,FazMais)
+	}
+	funcao VidaGato()
+		{
+		se(Vida > VidaMax){
+			Vida = 7
+		}
+		
+		se(Vida == 7){
+			escreva("Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡\n")
+		}
+		se(Vida == 6){
+			escreva("Vida: 		♡ ♡ ♡ ♡ ♡ ♡\n")
+		}
+		se(Vida == 5){
+			escreva("Vida:		♡ ♡ ♡ ♡ ♡\n")
+		}
+		se(Vida == 4){
+			escreva("Vida:		♡ ♡ ♡ ♡\n")
+		}
+		se(Vida == 3){
+			escreva("Vida:		♡ ♡ ♡\n")
+		}
+		se(Vida == 2){
+			escreva("Vida:		♡ ♡\n")
+		}
+		se(Vida ==1){
+			escreva("Vida:		♡\n")
+		}
+		se(Vida <= 0){
+			limpa()
+			escreva("Suas vidas acabaram")
+		}
+		}
+
+		funcao Casa(){
 			escreva("\n\n", Entrada, "a casa\n")
-			escreva(Gato)
 			escreva(Faz)
-			cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n0:Sair\n\nEscolha: "
+			const cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n0:Sair\n\nEscolha: "
 			escreva(OqFazCasa)
 			inteiro FazCasa
 			leia(FazCasa)
@@ -39,12 +105,15 @@ programa
 			enquanto(FazCasa != 0){
 				enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
 					escreva(CmdFail)
+					u.aguarde(1000)
 					escreva(OqFazCasa)
 					leia(FazCasa)}
 				se(FazCasa == 1){
 				Sorteia = u.sorteia(1, 2)
 				 se(Sorteia == 1){
 				 	escreva("Você foi atacado pelo cachorro.\n",Dano,"\n")
+				 	Vida = Vida - 1
+				 	VidaGato()
 				 }se(Sorteia == 2){
 				 	escreva(Conheceu, "Rufus, o cachorro")
 				 	Personagens++
@@ -62,23 +131,27 @@ programa
 					Sorteia = u.sorteia(1, 2)
 					se(Sorteia == 1){
 						escreva("Você bebeu um pouco de água e saiu\n\n")
+						Vida = Vida + 1
+						VidaGato()
 					}se(Sorteia == 2){
 						escreva(Conheceu, "Luciano, un humanito.\n\n")
 						Personagens++
 					}
 				}
-				escreva(FazMais, "\n")
+				escreva(FazMais)
 				escreva(OqFazCasa)
 				leia(FazCasa)
 			}
 			
 			
-					pare
-				caso 2:
-				escreva("\n\n", Foi, "a praça\n")
+		}
+		
+			
+		funcao Praca(){
+			escreva("\n\n", Foi, "a praça\n")
 				escreva(Gato)
 				escreva(Faz)
-				cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta  \n0:Sair\n\nEscolha"
+				const cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta  \n0:Sair\n\nEscolha"
 				escreva(OqFazPraca)
 				inteiro FazPraca
 				leia(FazPraca)
@@ -86,7 +159,9 @@ programa
 				se(FazPraca != 0){
 					enquanto(FazPraca != 1 e FazPraca != 2 e FazPraca != 3){
 						escreva(CmdFail)
+						u.aguarde(1000)
 						leia(FazPraca)
+						limpa()
 					}
 					se(FazPraca == 1){
 						Sorteia = u.sorteia(1, 2)
@@ -111,52 +186,6 @@ programa
 						//Parte da "batalha épica"//
 					}
 				}
-				pare
-				caso 3:
-				escreva("\n\n", Entrada, "o mercado\n")
-				escreva(Gato)
-				escreva(Faz)
-				cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes"
-				escreva(OqFazMercado)
-				inteiro FazMercado
-				leia(FazMercado)
-				limpa()
-					pare
 		}
-			}
-				}
-	funcao VidaGato()
-		{
-		inteiro Vida = 7
-		const inteiro VidaMax = 7
-		se(Vida > VidaMax){
-			Vida = 7
-		}
-		
-		se(Vida == 7){
-			escreva(" Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
-		}
-		se(Vida == 6){
-			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡")
-		}
-		se(Vida == 5){
-			escreva("	Vida:		♡ ♡ ♡ ♡ ♡")
-		}
-		se(Vida == 4){
-			escreva("	Vida:		♡ ♡ ♡ ♡")
-		}
-		se(Vida == 3){
-			escreva("	Vida:		♡ ♡ ♡")
-		}
-		se(Vida == 2){
-			escreva("	Vida:		♡ ♡")
-		}
-		se(Vida ==1){
-			escreva("	Vida:		♡")
-		}
-		se(Vida <= 0){
-			limpa()
-			escreva(" Suas vidas acabaram")
-		}
-		}
-}
+	}
+
