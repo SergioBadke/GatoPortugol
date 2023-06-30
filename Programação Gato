@@ -9,8 +9,10 @@ programa
 		cadeia CmdFail = "Comando citado não existe, tente novamente\n"
 		cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Faz = "\n\n\n Escolha algo para fazer\n"
 		cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
+		cadeia FazMais = "Voce quer fazer mais alguma coisa?"
 		inteiro Personagens = 0
 		inteiro Sorteia
+		//Inicio do codigo//
 		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
 		cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
 		escreva(LocaisCidade)
@@ -34,7 +36,7 @@ programa
 			inteiro FazCasa
 			leia(FazCasa)
 			limpa()
-			se(FazCasa != 0){
+			enquanto(FazCasa != 0){
 				enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
 					escreva(CmdFail)
 					escreva(OqFazCasa)
@@ -53,7 +55,7 @@ programa
 					se(Sorteia == 1){
 						escreva("A casa esta vazia e você foi embora\n\n")
 					}se(Sorteia == 2){
-						escreva(Conheceu, "Jefferson, um humano")
+						escreva(Conheceu, "Jefferson, um humano\n\n")
 						Personagens++
 					}
 				}se(FazCasa == 3){
@@ -61,10 +63,13 @@ programa
 					se(Sorteia == 1){
 						escreva("Você bebeu um pouco de água e saiu\n\n")
 					}se(Sorteia == 2){
-						escreva(Conheceu, "Luciano, un humanito.")
+						escreva(Conheceu, "Luciano, un humanito.\n\n")
 						Personagens++
 					}
 				}
+				escreva(FazMais, "\n")
+				escreva(OqFazCasa)
+				leia(FazCasa)
 			}
 			
 			
