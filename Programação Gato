@@ -1,7 +1,7 @@
 programa
 {
 	inclua biblioteca Util --> u
-//Frases e Variaveis
+//Frases e Variaveis GERAL
 
 	const inteiro VidaMax = 7
 	const cadeia Gato = "	      ▄▀▄     ▄▀▄\n	     ▄█  ▀▀▀▀▀  █▄\n	 ▄▄  █           █  ▄▄\n	█▄▄█ █  ▀  ┬  ▀  █ █▄▄█\n\n"
@@ -14,6 +14,7 @@ programa
 	inteiro Vida = 7
 	inteiro Personagens = 0
 	inteiro Sorteia
+	inteiro VidaCachorro = 4
 	
 	funcao inicio()
 	{
@@ -23,14 +24,15 @@ programa
 		
 		//Inicio do codigo//
 		escreva(Gato, Historia)
-		u.aguarde(1)
-		escreva("\n\n",Gato,"\nEscolha um local para ir:\n")
+		u.aguarde(5000)
+			escreva("\n\nEscolha um local para ir:\n")
 		const cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
+		enquanto(Vida > 0){
 		escreva(LocaisCidade)
 		inteiro Local
 		leia(Local)
 		limpa()
-		se(Local != 0){
+	se(Local != 0){
 		enquanto(Local != 1 e Local != 2 e Local !=3){
 
 			
@@ -42,25 +44,21 @@ programa
 		escolha(Local){
 			
 			caso 1:
-			Casa()
+				Casa()
 					pare
-				caso 2:
+			caso 2:
 				Praca()
 				pare
-				caso 3:
-				escreva("\n\n", Entrada, "o mercado\n")
-				escreva(Gato)
-				escreva(Faz)
-				const cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes\n\nEscolha:"
-				escreva(OqFazMercado)
-				inteiro FazMercado
-				leia(FazMercado)
-				limpa()
+			caso 3:
+				Mercado()
 					pare
 		}
 			}
-			escreva(LocaisCidade,FazMais)
-	}
+			escreva(FazMais, LocaisCidade)
+			leia(Local)
+	}VidaGato()
+		}
+		
 	funcao VidaGato()
 		{
 		se(Vida > VidaMax){
@@ -90,7 +88,8 @@ programa
 		}
 		se(Vida <= 0){
 			limpa()
-			escreva("Suas vidas acabaram")
+			escreva("Suas vidas acabaram\n")
+			escreva("Personagems encontrados: ", Personagens)
 		}
 		}
 
@@ -112,7 +111,7 @@ programa
 				Sorteia = u.sorteia(1, 2)
 				 se(Sorteia == 1){
 				 	escreva("Você foi atacado pelo cachorro.\n",Dano,"\n")
-				 	Vida = Vida - 1
+				 	Vida = Vida - 2
 				 	VidaGato()
 				 }se(Sorteia == 2){
 				 	escreva(Conheceu, "Rufus, o cachorro")
@@ -151,7 +150,7 @@ programa
 			escreva("\n\n", Foi, "a praça\n")
 				escreva(Gato)
 				escreva(Faz)
-				const cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta  \n0:Sair\n\nEscolha"
+				const cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta (Essa entrada não tem volta!) \n0:Sair\n\nEscolha: "
 				escreva(OqFazPraca)
 				inteiro FazPraca
 				leia(FazPraca)
@@ -167,8 +166,11 @@ programa
 						Sorteia = u.sorteia(1, 2)
 						se(Sorteia == 1){
 							escreva("Tinha vidro na areia. ",Dano)
+							Vida = Vida - 1
+							VidaGato()
 						}se(Sorteia == 2){	
 							escreva(Conheceu, "Luca, a criança")
+							Personagens++
 						}
 						}
 					se(FazPraca == 2){
@@ -177,15 +179,105 @@ programa
 						se(Sorteia == 1){
 							escreva("Você estava brincando quando caiu do escorregador. ")
 							escreva(Dano)
+							Vida = Vida - 1
+							VidaGato()
 						}se(Sorteia == 2){
 							escreva("Você estava brincando quando você avista alguem.", Conheceu, "Furico, o gato.")
 							Personagens++
 						}
 					}
 					se(FazPraca == 3){
-						//Parte da "batalha épica"//
+						Batalha()
 					}
 				}
 		}
-	}
+		funcao Mercado(){
+			escreva("\n\n", Entrada, "o mercado\n")
+				escreva(Gato)
+				escreva(Faz)
+				const cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes\n0:Sair\n\nEscolha:"
+				escreva(OqFazMercado)
+				inteiro FazMercado
+				leia(FazMercado)
+				limpa()
+				se(FazMercado != 0){
+					enquanto(FazMercado != 1 e FazMercado != 2 e FazMercado != 3){
+					escreva(CmdFail)
+						u.aguarde(1000)
+						leia(FazMercado)
+						limpa()
+				}
+				se(FazMercado == 1){
+					
+				}
+				se(FazMercado == 2){
+					
+				}
+				se(FazMercado == 3){
+					
+				}
+		}
+				}
+		funcao Batalha(){
+			cadeia Cao = " ╭━━╮╭━━╮\n ┃╭╮┗┻━━┻━╮\n ┃╰┓╭━╮╭━╮┃\n ╰━┓┃▇┃┃▇┃┃\n   ┃╱▔▔▔▔▔▔▔▇\n   ┃▏┏┳┳┳┳┳━┛\n   ┃╲╰┻┻┻┻┻┓\n\n"
+			escreva(Cao, "Esse é Clark, o cachorro novo de sua antiga familia.\nEle não gosta de gatos.")
+			u.aguarde(5000)
+			enquanto(VidaCachorro > 0){
+				inteiro Opcao
+				inteiro Chance = u.sorteia(1,2)
+				escreva("\n\nEscolha um ataque:\n[1] Arranhar	[2] Morder\n\n")
+				leia(Opcao)
 
+				se(Opcao == Chance e Opcao == 1){
+					escreva("Você arranhou Clark.\n")
+					VidaCachorro = VidaCachorro - 1
+					VidaCao()
+					u.aguarde(5000)
+					limpa()
+				}
+				se(Opcao != Chance e Opcao == 1){
+					escreva("Clark te arranhou.\n")
+					Vida = Vida - 1
+					VidaGato()
+					u.aguarde(5000)
+					limpa()
+				}
+				se(Opcao == Chance e Opcao == 2){
+					escreva("Você mordeu Clark.\n")
+					VidaCachorro = VidaCachorro - 2
+					VidaCao()
+					u.aguarde(5000)
+					limpa()
+				}
+				se(Opcao != Chance e Opcao == 2){
+					escreva("Clark te mordeu.\n")
+					Vida = Vida - 2
+					VidaGato()
+					u.aguarde(5000)
+					limpa()
+			}
+			}
+		}
+		funcao VidaCao(){
+			se(VidaCachorro == 4){
+				escreva("Vida Clark: ▇▇▇▇▇▇▇▇ ")
+			}
+			
+			se(VidaCachorro == 3){
+				escreva("Vida Clark: ▇▇▇▇▇▇ ")
+			}
+			
+			se(VidaCachorro == 2){
+				escreva("Vida Clark: ▇▇▇▇ ")
+			}
+			
+			se(VidaCachorro == 1){
+				escreva("Vida Clark: ▇▇ ")
+			}
+			se(VidaCachorro <= 0){
+				escreva("VOCÊ VENCEU\n\n		FIM	\nPersonagens encontrados: ", Personagens)
+				escreva("\n\nCreditos")
+			}
+		}
+				
+	}
