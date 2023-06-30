@@ -111,7 +111,11 @@ programa
 				escreva("\n\n", Entrada, "o mercado\n")
 				escreva(Gato)
 				escreva(Faz)
-				cadeia FazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes
+				cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes"
+				escreva(OqFazMercado)
+				inteiro FazMercado
+				leia(FazMercado)
+				limpa()
 					pare
 		}
 			}
@@ -125,7 +129,7 @@ programa
 		}
 		
 		se(Vida == 7){
-			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
+			escreva(" Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡")
 		}
 		se(Vida == 6){
 			escreva("	Vida: 		♡ ♡ ♡ ♡ ♡ ♡")
