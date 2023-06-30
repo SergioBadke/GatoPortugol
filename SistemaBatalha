@@ -1,0 +1,23 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro gato = 7, cachorro = 4
+		inteiro opcao, chance = sorteia(1,2)
+
+		escreva("Você tem duas opções:\n[1] Arranhar  [2] Morder\n")
+		leia(opcao)
+
+
+		se(opcao != chance){
+			escreva("Oh Uh!\nVocê foi mordido..\n*Menos uma vida*")
+		}
+		senao{
+			escreva("Você causou dano!")
+		}
+
+		
+		
+	}
+}
