@@ -10,54 +10,71 @@ programa
 	const cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
 	const cadeia FazMais = "Voce quer fazer mais alguma coisa?\n\n"
 	const cadeia Historia = "Cerveja, um gato perdido em uma cidade desconhecida, enfrenta solidão e perigos nas ruas.\nEle percorre ruas movimentadas, becos sombrios e terrenos acidentados, lutando contra a fome e a sede.\nSeu pelo está emaranhado e suas patas machucadas, mas ele persiste em sua busca por um lar.\nCerveja cruza com pessoas indiferentes que o ignoram, aumentando sua sensação de desamparo.\nNo entanto, em meio a sua angústia, Cerveja mantém a esperança\nde reencontrar sua família e sentir novamente o aconchego do lar.\n\n"
-		
-	inteiro Vida = 7
+	const cadeia Creditos = "\n\n\\\\Creditos"
+	
+	inteiro Vida = 4
 	inteiro Personagens = 0
 	inteiro Sorteia
-	inteiro VidaCachorro = 4
+	inteiro VidaCachorro = 5
+	inteiro Local = 12
+
+	inteiro TempoAguardo = 1000
+	inteiro TempoAguardoLongo = TempoAguardo * 5 
 	
 	funcao inicio()
 	{
-		
-		
-		
-		
 		//Inicio do codigo//
 		escreva(Gato, Historia)
-		u.aguarde(5000)
-			escreva("\n\nEscolha um local para ir:\n")
+		u.aguarde(TempoAguardoLongo)
+		escreva("\n\nEscolha um local para ir:\n")
 		const cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
-		enquanto(Vida > 0){
-		escreva(LocaisCidade)
-		inteiro Local
-		leia(Local)
-		limpa()
-	se(Local != 0){
-		enquanto(Local != 1 e Local != 2 e Local !=3){
-
-			
-				escreva(CmdFail)
-				escreva(LocaisCidade)
-				leia(Local)
-				limpa()
-			}
-		escolha(Local){
-			
-			caso 1:
-				Casa()
-					pare
-			caso 2:
-				Praca()
-				pare
-			caso 3:
-				Mercado()
-					pare
-		}
-			}
-			escreva(FazMais, LocaisCidade)
+		
+		enquanto(Vida >= 1 e Local != 0 e VidaCachorro >= 1)
+		{
+			escreva(LocaisCidade)
 			leia(Local)
-	}VidaGato()
-		}
+			limpa()
+			
+			se(Local != 0)
+			{
+				
+				enquanto(Local != 1 e Local != 2 e Local !=3)
+				{
+					escreva(CmdFail)
+					escreva(LocaisCidade)
+					leia(Local)
+					limpa()
+				}
+			
+				escolha(Local){
+					
+					caso 1:
+						Casa()
+					pare
+					
+					caso 2:
+						Praca()
+					pare
+					
+					caso 3:
+						Mercado()
+					pare
+				}
+				se(Vida>0){
+					escreva(FazMais, LocaisCidade)
+				leia(Local)
+				}
+				
+		
+			}//fim do se
+			
+		} //enquanto tem vida
+	
+		limpa()
+		escreva("Personagens encontrados: ", Personagens, Creditos)
+	
+	} //fim da funcao inicio()
+	
 		
 	funcao VidaGato()
 		{
@@ -65,28 +82,28 @@ programa
 			Vida = 7
 		}
 		
-		se(Vida == 7){
+		senao se(Vida == 7){
 			escreva("Vida: 		♡ ♡ ♡ ♡ ♡ ♡ ♡\n")
 		}
-		se(Vida == 6){
+		senao se(Vida == 6){
 			escreva("Vida: 		♡ ♡ ♡ ♡ ♡ ♡\n")
 		}
-		se(Vida == 5){
+		senao se(Vida == 5){
 			escreva("Vida:		♡ ♡ ♡ ♡ ♡\n")
 		}
-		se(Vida == 4){
+		senao se(Vida == 4){
 			escreva("Vida:		♡ ♡ ♡ ♡\n")
 		}
-		se(Vida == 3){
+		senao se(Vida == 3){
 			escreva("Vida:		♡ ♡ ♡\n")
 		}
-		se(Vida == 2){
+		senao se(Vida == 2){
 			escreva("Vida:		♡ ♡\n")
 		}
-		se(Vida ==1){
+		senao se(Vida ==1){
 			escreva("Vida:		♡\n")
 		}
-		se(Vida <= 0){
+		senao se(Vida <= 0){
 			limpa()
 			escreva("Suas vidas acabaram\n")
 			escreva("Personagems encontrados: ", Personagens)
@@ -104,7 +121,7 @@ programa
 			enquanto(FazCasa != 0){
 				enquanto(FazCasa != 1 e FazCasa != 2 e FazCasa != 3){
 					escreva(CmdFail)
-					u.aguarde(1000)
+					u.aguarde(TempoAguardo)
 					escreva(OqFazCasa)
 					leia(FazCasa)}
 				se(FazCasa == 1){
@@ -158,7 +175,7 @@ programa
 				se(FazPraca != 0){
 					enquanto(FazPraca != 1 e FazPraca != 2 e FazPraca != 3){
 						escreva(CmdFail)
-						u.aguarde(1000)
+						u.aguarde(TempoAguardo)
 						leia(FazPraca)
 						limpa()
 					}
@@ -195,7 +212,7 @@ programa
 			escreva("\n\n", Entrada, "o mercado\n")
 				escreva(Gato)
 				escreva(Faz)
-				const cadeia OqFazMercado = "1:Setor de Carnes\n2:Setor de Animais\n3:Setor de Peixes\n0:Sair\n\nEscolha:"
+				const cadeia OqFazMercado = "1:Seção de Lacticinios\n2:Seção de Carnes\n3:Padaria\n0:Sair\n\nEscolha:"
 				escreva(OqFazMercado)
 				inteiro FazMercado
 				leia(FazMercado)
@@ -203,17 +220,23 @@ programa
 				se(FazMercado != 0){
 					enquanto(FazMercado != 1 e FazMercado != 2 e FazMercado != 3){
 					escreva(CmdFail)
-						u.aguarde(1000)
+						u.aguarde(TempoAguardo)
 						leia(FazMercado)
 						limpa()
 				}
 				se(FazMercado == 1){
+				escreva("Você bebeu leite e saiu\n")	
+					Vida++
 					
 				}
 				se(FazMercado == 2){
+					escreva("Você comeu uma picanha e saiu")
+					Vida++
 					
 				}
 				se(FazMercado == 3){
+					escreva("Você comeu um pão e saiu")
+					Vida++
 					
 				}
 		}
@@ -221,8 +244,8 @@ programa
 		funcao Batalha(){
 			cadeia Cao = " ╭━━╮╭━━╮\n ┃╭╮┗┻━━┻━╮\n ┃╰┓╭━╮╭━╮┃\n ╰━┓┃▇┃┃▇┃┃\n   ┃╱▔▔▔▔▔▔▔▇\n   ┃▏┏┳┳┳┳┳━┛\n   ┃╲╰┻┻┻┻┻┓\n\n"
 			escreva(Cao, "Esse é Clark, o cachorro novo de sua antiga familia.\nEle não gosta de gatos.")
-			u.aguarde(5000)
-			enquanto(VidaCachorro > 0){
+			u.aguarde(TempoAguardoLongo)
+			enquanto(VidaCachorro > 0 e Vida > 0){
 				inteiro Opcao
 				inteiro Chance = u.sorteia(1,2)
 				escreva("\n\nEscolha um ataque:\n[1] Arranhar	[2] Morder\n\n")
@@ -232,51 +255,68 @@ programa
 					escreva("Você arranhou Clark.\n")
 					VidaCachorro = VidaCachorro - 1
 					VidaCao()
-					u.aguarde(5000)
+					u.aguarde(TempoAguardo)
 					limpa()
 				}
 				se(Opcao != Chance e Opcao == 1){
 					escreva("Clark te arranhou.\n")
 					Vida = Vida - 1
 					VidaGato()
-					u.aguarde(5000)
+					u.aguarde(TempoAguardo)
 					limpa()
 				}
 				se(Opcao == Chance e Opcao == 2){
 					escreva("Você mordeu Clark.\n")
 					VidaCachorro = VidaCachorro - 2
 					VidaCao()
-					u.aguarde(5000)
+					u.aguarde(TempoAguardo)
 					limpa()
 				}
 				se(Opcao != Chance e Opcao == 2){
 					escreva("Clark te mordeu.\n")
 					Vida = Vida - 2
 					VidaGato()
-					u.aguarde(5000)
+					u.aguarde(TempoAguardo)
 					limpa()
 			}
 			}
 		}
 		funcao VidaCao(){
-			se(VidaCachorro == 4){
-				escreva("Vida Clark: ▇▇▇▇▇▇▇▇ ")
+			se(VidaCachorro == 10){
+				escreva("Vida Clark: ▇▇▇▇▇▇▇▇▇▇10▇▇▇▇▇▇▇▇▇▇")
+			}
+			senao se(VidaCachorro == 9){
+				escreva("Vida Clark: ▇▇▇▇▇▇▇▇▇9▇▇▇▇▇▇▇▇▇ ")
+			}
+			senao se(VidaCachorro == 8){
+				escreva("Vida Clark: ▇▇▇▇▇▇▇▇8▇▇▇▇▇▇▇▇ ")
+			}
+			senao se(VidaCachorro == 7){
+				escreva("Vida Clark: ▇▇▇▇▇▇▇7▇▇▇▇▇▇▇ ")
+			}
+			senao se(VidaCachorro == 6){
+				escreva("Vida Clark: ▇▇▇▇▇▇6▇▇▇▇▇▇ ")
+			}
+			senao se(VidaCachorro == 5){
+				escreva("Vida Clark: ▇▇▇▇▇5▇▇▇▇▇ ")
+			}
+			senao se(VidaCachorro == 4){
+				escreva("Vida Clark: ▇▇▇▇4▇▇▇▇ ")
 			}
 			
-			se(VidaCachorro == 3){
-				escreva("Vida Clark: ▇▇▇▇▇▇ ")
+			senao se(VidaCachorro == 3){
+				escreva("Vida Clark: ▇▇▇3▇▇▇ ")
 			}
 			
-			se(VidaCachorro == 2){
-				escreva("Vida Clark: ▇▇▇▇ ")
+			senao se(VidaCachorro == 2){
+				escreva("Vida Clark: ▇▇2▇▇ ")
 			}
 			
-			se(VidaCachorro == 1){
-				escreva("Vida Clark: ▇▇ ")
+			senao se(VidaCachorro == 1){
+				escreva("Vida Clark: ▇1▇ ")
 			}
-			se(VidaCachorro <= 0){
-				escreva("VOCÊ VENCEU\n\n		FIM	\nPersonagens encontrados: ", Personagens)
-				escreva("\n\nCreditos")
+			senao se(VidaCachorro <= 0){
+				escreva("VOCÊ VENCEU\n\n		FIM	\nPersonagens encontrados: ", Personagens, Creditos)
 			}
 		}
 				
