@@ -8,7 +8,7 @@ programa
 	const cadeia CmdFail = "Comando citado não existe, tente novamente\n"
 	const cadeia Entrada = "Você entrou n", Foi = "Você foi para ", Faz = "\n\n\n Escolha algo para fazer\n"
 	const cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
-	const cadeia FazMais = "Voce quer fazer mais alguma coisa?\n\n"
+	const cadeia FazMais = "Você quer fazer mais alguma coisa?\n\n"
 	const cadeia Historia = "Cerveja, um gato perdido em uma cidade desconhecida, enfrenta solidão e perigos nas ruas.\nEle percorre ruas movimentadas, becos sombrios e terrenos acidentados, lutando contra a fome e a sede.\nSeu pelo está emaranhado e suas patas machucadas, mas ele persiste em sua busca por um lar.\nCerveja cruza com pessoas indiferentes que o ignoram, aumentando sua sensação de desamparo.\nNo entanto, em meio a sua angústia, Cerveja mantém a esperança\nde reencontrar sua família e sentir novamente o aconchego do lar.\n\n"
 	const cadeia Creditos = "\n\n\\\\Creditos"
 	
@@ -18,7 +18,7 @@ programa
 	inteiro VidaCachorro = 5
 	inteiro Local = 12
 
-	inteiro TempoAguardo = 1000
+	inteiro TempoAguardo = 1500
 	inteiro TempoAguardoLongo = TempoAguardo * 5 
 	
 	funcao inicio()
@@ -133,15 +133,18 @@ programa
 				 }se(Sorteia == 2){
 				 	escreva(Conheceu, "Rufus, o cachorro")
 				 	Personagens++
+				 	u.aguarde(TempoAguardo)
 				 }
 					
 				}se(FazCasa == 2){
 					Sorteia = u.sorteia(1, 2)
 					se(Sorteia == 1){
 						escreva("A casa esta vazia e você foi embora\n\n")
+						u.aguarde(TempoAguardo)
 					}se(Sorteia == 2){
 						escreva(Conheceu, "Jefferson, um humano\n\n")
 						Personagens++
+						u.aguarde(TempoAguardo)
 					}
 				}se(FazCasa == 3){
 					Sorteia = u.sorteia(1, 2)
@@ -149,9 +152,11 @@ programa
 						escreva("Você bebeu um pouco de água e saiu\n\n")
 						Vida = Vida + 1
 						VidaGato()
+						u.aguarde(TempoAguardo)
 					}se(Sorteia == 2){
 						escreva(Conheceu, "Luciano, un humanito.\n\n")
 						Personagens++
+						u.aguarde(TempoAguardo)
 					}
 				}
 				escreva(FazMais)
@@ -185,9 +190,11 @@ programa
 							escreva("Tinha vidro na areia. ",Dano)
 							Vida = Vida - 1
 							VidaGato()
+							u.aguarde(TempoAguardo)
 						}se(Sorteia == 2){	
 							escreva(Conheceu, "Luca, a criança")
 							Personagens++
+							u.aguarde(TempoAguardo)
 						}
 						}
 					se(FazPraca == 2){
@@ -198,9 +205,11 @@ programa
 							escreva(Dano)
 							Vida = Vida - 1
 							VidaGato()
+							u.aguarde(TempoAguardo)
 						}se(Sorteia == 2){
 							escreva("Você estava brincando quando você avista alguem.", Conheceu, "Furico, o gato.")
 							Personagens++
+							u.aguarde(TempoAguardo)
 						}
 					}
 					se(FazPraca == 3){
@@ -227,16 +236,19 @@ programa
 				se(FazMercado == 1){
 				escreva("Você bebeu leite e saiu\n")	
 					Vida++
+					u.aguarde(TempoAguardo)
 					
 				}
 				se(FazMercado == 2){
-					escreva("Você comeu uma picanha e saiu")
+					escreva("Você comeu uma picanha e saiu\n")
 					Vida++
+					u.aguarde(TempoAguardo)
 					
 				}
 				se(FazMercado == 3){
-					escreva("Você comeu um pão e saiu")
+					escreva("Você comeu um pão e saiu\n")
 					Vida++
+					u.aguarde(TempoAguardo)
 					
 				}
 		}
