@@ -163,8 +163,6 @@ programa
 				escreva(OqFazCasa)
 				leia(FazCasa)
 			}
-			
-			
 		}
 		
 			
@@ -217,42 +215,60 @@ programa
 					}
 				}
 		}
-		funcao Mercado(){
-			escreva("\n\n", Entrada, "o mercado\n")
-				escreva(Gato)
-				escreva(Faz)
-				const cadeia OqFazMercado = "1:Seção de Lacticinios\n2:Seção de Carnes\n3:Padaria\n0:Sair\n\nEscolha:"
-				escreva(OqFazMercado)
-				inteiro FazMercado
-				leia(FazMercado)
-				limpa()
-				se(FazMercado != 0){
-					enquanto(FazMercado != 1 e FazMercado != 2 e FazMercado != 3){
+		funcao Mercado(){escreva("\n\n", Entrada, "o mercado do seu Luiz\n")
+			escreva(Faz)
+			const cadeia OqFazMercado = "1:Ir para a padaria\n2:Ir para o açougue\n3:Ir para o Setor 3\n0:Sair\n\nEscolha: "
+			const cadeia Comer = "Você comeu um"
+			escreva(OqFazMercado)
+			inteiro FazMercado
+			leia(FazMercado)
+			limpa()
+			enquanto(FazMercado != 0){
+				enquanto(FazMercado != 1 e FazMercado != 2 e FazMercado != 3){
 					escreva(CmdFail)
-						u.aguarde(TempoAguardo)
-						leia(FazMercado)
-						limpa()
-				}
+					u.aguarde(TempoAguardo)
+					escreva(OqFazMercado)
+					leia(FazMercado)}
 				se(FazMercado == 1){
-				escreva("Você bebeu leite e saiu\n")	
-					Vida++
-					u.aguarde(TempoAguardo)
+				Sorteia = u.sorteia(1, 2)
+				 se(Sorteia == 1){
+				 	escreva(Comer," pão velho.\n\n")
+				 	u.aguarde(TempoAguardo)
+				 }se(Sorteia == 2){
+				 	escreva(Comer," pão delicinha\n\n")
+				 	Vida++
+				 	u.aguarde(TempoAguardo)
+				 }
 					
+				}se(FazMercado == 2){
+					Sorteia = u.sorteia(1, 2)
+					se(Sorteia == 1){
+						escreva(Comer,"a carne estranha\n\n")
+						u.aguarde(TempoAguardo)
+					}se(Sorteia == 2){
+						escreva(Comer, "a picanha perfeita\n\n")
+						Vida++
+						u.aguarde(TempoAguardo)
+					}
+				}se(FazMercado == 3){
+					Sorteia = u.sorteia(1, 2)
+					se(Sorteia == 1){
+						escreva("Você bebeu um pouco de água e saiu\n\n")
+						Vida++
+						VidaGato()
+						u.aguarde(TempoAguardo)
+					}se(Sorteia == 2){
+						escreva("Você bebeu uma Coca geladinha.\n\n")
+						Vida++
+						u.aguarde(TempoAguardo)
+					}
 				}
-				se(FazMercado == 2){
-					escreva("Você comeu uma picanha e saiu\n")
-					Vida++
-					u.aguarde(TempoAguardo)
-					
-				}
-				se(FazMercado == 3){
-					escreva("Você comeu um pão e saiu\n")
-					Vida++
-					u.aguarde(TempoAguardo)
-					
-				}
+				escreva(FazMais)
+				escreva(OqFazMercado)
+				leia(FazMercado)
+			}
 		}
-				}
+			
 		funcao Batalha(){
 			cadeia Cao = " ╭━━╮╭━━╮\n ┃╭╮┗┻━━┻━╮\n ┃╰┓╭━╮╭━╮┃\n ╰━┓┃▇┃┃▇┃┃\n   ┃╱▔▔▔▔▔▔▔▇\n   ┃▏┏┳┳┳┳┳━┛\n   ┃╲╰┻┻┻┻┻┓\n\n"
 			escreva(Cao, "Esse é Clark, o cachorro novo de sua antiga familia.\nEle não gosta de gatos.")
