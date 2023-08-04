@@ -10,7 +10,7 @@ programa
 	const cadeia Dano = "Você se machucou.", Conheceu = "Você conheceu "
 	const cadeia FazMais = "Você quer fazer mais alguma coisa?\n\n"
 	const cadeia Historia = "Cerveja, um gato perdido em uma cidade desconhecida, enfrenta solidão e perigos nas ruas.\nEle percorre ruas movimentadas, becos sombrios e terrenos acidentados, lutando contra a fome e a sede.\nSeu pelo está emaranhado e suas patas machucadas, mas ele persiste em sua busca por um lar.\nCerveja cruza com pessoas indiferentes que o ignoram, aumentando sua sensação de desamparo.\nNo entanto, em meio a sua angústia, Cerveja mantém a esperança\nde reencontrar sua família e sentir novamente o aconchego do lar.\n\n"
-	const cadeia Creditos = "\n\n\\\\Creditos"
+	const cadeia Creditos = "\n\nAs Aventuras Cerveja by Izabella e Sergio"
 	
 	inteiro Vida = 4
 	inteiro Personagens = 0
