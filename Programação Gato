@@ -60,11 +60,6 @@ programa
 						Mercado()
 					pare
 				}
-				se(Vida>0){
-					escreva(FazMais, LocaisCidade)
-				leia(Local)
-				}
-				
 		
 			}//fim do se
 			
