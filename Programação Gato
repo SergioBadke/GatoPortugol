@@ -24,6 +24,7 @@ programa
 	funcao inicio()
 	{
 		//Inicio do codigo//
+		Comeco()
 		escreva(Gato, Historia)
 		u.aguarde(TempoAguardoLongo)
 		escreva("\n\nEscolha um local para ir:\n")
@@ -71,8 +72,7 @@ programa
 	} //fim da funcao inicio()
 	
 		
-	funcao VidaGato()
-		{
+	funcao VidaGato(){
 		se(Vida > VidaMax){
 			Vida = 7
 		}
@@ -103,7 +103,7 @@ programa
 			escreva("Suas vidas acabaram\n")
 			escreva("Personagems encontrados: ", Personagens)
 		}
-		}
+				}
 
 		funcao Casa(){
 			escreva("\n\n", Entrada, "a casa\n")
@@ -157,8 +157,8 @@ programa
 				escreva(FazMais)
 				escreva(OqFazCasa)
 				leia(FazCasa)
-			}
-		}
+						}
+				}
 		
 			
 		funcao Praca(){
@@ -209,8 +209,9 @@ programa
 						Batalha()
 					}
 				}
-		}
-		funcao Mercado(){escreva("\n\n", Entrada, "o mercado do seu Luiz\n")
+				}
+		funcao Mercado(){
+			escreva("\n\n", Entrada, "o mercado do seu Luiz\n")
 			escreva(Faz)
 			const cadeia OqFazMercado = "1:Ir para a padaria\n2:Ir para o açougue\n3:Ir para o Setor 3\n0:Sair\n\nEscolha: "
 			const cadeia Comer = "Você comeu um"
@@ -261,8 +262,8 @@ programa
 				escreva(FazMais)
 				escreva(OqFazMercado)
 				leia(FazMercado)
-			}
-		}
+						}
+					}
 			
 		funcao Batalha(){
 			cadeia Cao = " ╭━━╮╭━━╮\n ┃╭╮┗┻━━┻━╮\n ┃╰┓╭━╮╭━╮┃\n ╰━┓┃▇┃┃▇┃┃\n   ┃╱▔▔▔▔▔▔▔▇\n   ┃▏┏┳┳┳┳┳━┛\n   ┃╲╰┻┻┻┻┻┓\n\n"
@@ -303,7 +304,7 @@ programa
 					limpa()
 			}
 			}
-		}
+					}
 		funcao VidaCao(){
 			se(VidaCachorro == 10){
 				escreva("Vida Clark: ▇▇▇▇▇▇▇▇▇▇10▇▇▇▇▇▇▇▇▇▇")
@@ -341,6 +342,26 @@ programa
 			senao se(VidaCachorro <= 0){
 				escreva("VOCÊ VENCEU\n\n		FIM	\nPersonagens encontrados: ", Personagens, Creditos)
 			}
+					}
+		funcao Comeco(){
+			const cadeia Titulo = " _______      _______         __              ______                          __ \n|       |    |     __|.---.-.|  |_.-----.    |      |.-----.----.--.--.-----.|__|.---.-.\n|   -   |    |    |  ||  _  ||   _|  _  |    |   ---||  -__|   _|  |  |  -__||  ||  _  |\n|_______|    |_______||___._||____|_____|    |______||_____|__|  \\___/|_____||  ||___._|\n                                                                            |___|       \n\n\n[1][JOGAR]\n\n[2][Creditos]\n\n\nEscolha: "
+			inteiro Escolher
+
+			escreva(Titulo)
+			leia(Escolher)
+			limpa()
+			enquanto(Escolher!=1 e Escolher!=2){
+				escreva(CmdFail)
+				leia(Escolher)
+				limpa()
+			}
+			enquanto(Escolher == 2){
+				escreva(Creditos)
+				u.aguarde(TempoAguardoLongo)
+				limpa()
+				escreva(Titulo)
+				leia(Escolher)
+			}
 		}
-				
+		
 	}
