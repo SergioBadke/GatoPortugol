@@ -351,6 +351,7 @@ programa
 			leia(Escolher)
 			limpa()
 			enquanto(Escolher!=1 e Escolher!=2){
+				escreva(Titulo)
 				escreva(CmdFail)
 				leia(Escolher)
 				limpa()
