@@ -12,10 +12,10 @@ programa
 	const cadeia Historia = "Cerveja, um gato perdido em uma cidade desconhecida, enfrenta solidão e perigos nas ruas.\nEle percorre ruas movimentadas, becos sombrios e terrenos acidentados, lutando contra a fome e a sede.\nSeu pelo está emaranhado e suas patas machucadas, mas ele persiste em sua busca por um lar.\nCerveja cruza com pessoas indiferentes que o ignoram, aumentando sua sensação de desamparo.\nNo entanto, em meio a sua angústia, Cerveja mantém a esperança\nde reencontrar sua família e sentir novamente o aconchego do lar.\n\n"
 	const cadeia Creditos = "\n\nAs Aventuras Cerveja by Izabella e Sergio\n"
 	
-	inteiro Vida = 4
+	inteiro Vida = 7
 	inteiro Personagens = 0
 	inteiro Sorteia
-	inteiro VidaCachorro = 5
+	inteiro VidaCachorro = 10
 	inteiro Local = 12
 
 	inteiro TempoAguardo = 1500
@@ -362,6 +362,7 @@ programa
 				limpa()
 				escreva(Titulo)
 				leia(Escolher)
+				limpa()
 			}
 		}
 		
