@@ -28,7 +28,7 @@ programa
 		escreva(Gato, Historia)
 		u.aguarde(TempoAguardoLongo)
 		escreva("\n\nEscolha um local para ir:\n")
-		const cadeia LocaisCidade = "\n1:Casa\n2:Praça\n3:Mercado\n0:Sair\nEscolha: "
+		const cadeia LocaisCidade = "\n[1] Casa\n[2] Praça\n[3] Mercado\n[0] Sair\nEscolha: "
 		
 		enquanto(Vida >= 1 e Local != 0 e VidaCachorro >= 1)
 		{
@@ -111,7 +111,7 @@ programa
 		funcao Casa(){
 			escreva("\n\n", Entrada, "a casa\n")
 			escreva(Faz)
-			const cadeia OqFazCasa = "1:Ir para o quintal\n2:Visitar quartos\n3:Ver cozinha\n0:Sair\n\nEscolha: "
+			const cadeia OqFazCasa = "[1] Ir para o quintal\n[2] Visitar quartos\n[3] Ver cozinha\n[0] Sair\n\nEscolha: "
 			escreva(OqFazCasa)
 			inteiro FazCasa
 			leia(FazCasa)
@@ -169,12 +169,12 @@ programa
 			escreva("\n\n", Foi, "a praça\n")
 				escreva(Gato)
 				escreva(Faz)
-				const cadeia OqFazPraca = "1:Brincar na areia\n2:Brincar no parquinho\n3:Ir para a floresta (Essa entrada não tem volta!) \n0:Sair\n\nEscolha: "
+				const cadeia OqFazPraca = "[1] Brincar na areia\n[2] Brincar no parquinho\n[3] Ir para a floresta (Essa entrada não tem volta!) \n0:Sair\n\nEscolha: "
 				escreva(OqFazPraca)
 				inteiro FazPraca
 				leia(FazPraca)
 				limpa()
-				se(FazPraca != 0){
+				enquanto(FazPraca != 0){
 					enquanto(FazPraca != 1 e FazPraca != 2 e FazPraca != 3){
 						escreva(CmdFail)
 						u.aguarde(TempoAguardo)
@@ -212,6 +212,9 @@ programa
 					se(FazPraca == 3){
 						Batalha()
 					}
+				escreva(FazMais)
+				escreva(OqFazPraca)
+				leia(FazPraca)
 				}
 				}
 
@@ -219,7 +222,7 @@ programa
 		funcao Mercado(){
 			escreva("\n\n", Entrada, "o mercado do seu Luiz\n")
 			escreva(Faz)
-			const cadeia OqFazMercado = "1:Ir para a padaria\n2:Ir para o açougue\n3:Ir para o Setor 3\n0:Sair\n\nEscolha: "
+			const cadeia OqFazMercado = "[1] Ir para a padaria\n[2] Ir para o açougue\n[3] Ir para o setor de bebidas\n[0] Sair\n\nEscolha: "
 			const cadeia Comer = "Você comeu um"
 			escreva(OqFazMercado)
 			inteiro FazMercado
