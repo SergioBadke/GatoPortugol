@@ -139,7 +139,7 @@ programa
 				}se(FazCasa == 2){
 					Sorteia = u.sorteia(1, 2)
 					se(Sorteia == 1){
-						escreva("A casa esta vazia e você foi embora\n\n")
+						escreva("O quaro esta vazio e você foi embora\n\n")
 						u.aguarde(TempoAguardo)
 					}se(Sorteia == 2){
 						escreva(Conheceu, "Jefferson, um humano\n\n")
@@ -191,7 +191,7 @@ programa
 							VidaGato()
 							u.aguarde(TempoAguardo)
 						}se(Sorteia == 2){	
-							escreva(Conheceu, "Luca, a criança")
+							escreva(Conheceu, "Pablo Vegetti, a criança")
 							Personagens++
 							u.aguarde(TempoAguardo)
 						}
