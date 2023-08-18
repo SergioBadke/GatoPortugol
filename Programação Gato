@@ -1,5 +1,6 @@
 programa
 {
+	inclua biblioteca Graficos --> g
 	inclua biblioteca Util --> u
 //Frases e Variaveis GERAL
 
@@ -68,7 +69,8 @@ programa
 	
 		limpa()
 		escreva("Personagens encontrados: ", Personagens, Creditos)
-	
+		u.aguarde(TempoAguardoLongo)
+		gif()
 	} //fim da funcao inicio()
 	
 
@@ -376,5 +378,33 @@ programa
 				limpa()
 			}
 		}
+
+		funcao gif(){
+			
+			cadeia i
+			logico a
+			inteiro cat = g.carregar_imagem("/home/lab/Área de Trabalho/gate.gif")
+				
+			se(Personagens == 5){
+
+				escreva("Como você conheceu todos os personagens, aquiestá um presente..\n")
+				a = verdadeiro 
+				g.iniciar_modo_grafico(a)
+				g.definir_dimensoes_janela(909, 909)
+	
+				enquanto(verdadeiro){
+				
+					g.desenhar_imagem(0, 0, cat)
+					g.renderizar()
+					
+			
+				}
+			}
+			senao{
+				
+				escreva("\nVocê perdeu um segredinho.. :(")
+			}
 		
+			
+		}
 	}
