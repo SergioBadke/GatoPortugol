@@ -213,6 +213,7 @@ programa
 					}
 					se(FazPraca == 3){
 						Batalha()
+						pare
 					}
 				escreva(FazMais)
 				escreva(OqFazPraca)
