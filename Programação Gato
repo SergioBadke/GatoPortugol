@@ -444,7 +444,7 @@ programa
 				limpa()
 			}
 		}
-
+		//Bônus\\
 		funcao gif()
 		{
 			
