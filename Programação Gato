@@ -158,7 +158,7 @@ programa
 					Sorteia = u.sorteia(1, 2)
 					se(Sorteia == 1)
 					{
-						escreva("O quaro esta vazio e você foi embora\n\n")
+						escreva("O quarto esta vazio e você foi embora\n\n")
 						u.aguarde(TempoAguardo)
 					}se(Sorteia == 2)
 					{
@@ -220,7 +220,7 @@ programa
 							u.aguarde(TempoAguardo)
 						}se(Sorteia == 2)
 						{	
-							escreva(Conheceu, "Pablo Vegetti, a criança")
+							escreva(Conheceu, "Rodrigo Góes, o natty")
 							Personagens++
 							u.aguarde(TempoAguardo)
 						}
@@ -455,7 +455,7 @@ programa
 			se(Personagens == 5)
 			{
 
-				escreva("Como você conheceu todos os personagens, aquiestá um presente..\n")
+				escreva("Como você conheceu todos os personagens, aqui está um presente..\n")
 				a = verdadeiro 
 				g.iniciar_modo_grafico(a)
 				g.definir_dimensoes_janela(909, 909)
